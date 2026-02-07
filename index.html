@@ -320,9 +320,9 @@
   }
   .stat-label { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.3rem; }
 
-  .search-container { margin-top: 3rem; position: relative; }
-  .search-box {
-    width: 100%; max-width: 500px;
+.search-container { margin-top: 3rem; position: relative; max-width: 500px; }
+.search-box {
+    width: 100%;
     padding: 1rem 1.2rem 1rem 3rem;
     border-radius: 14px;
     background: var(--surface);
@@ -330,16 +330,16 @@
     color: var(--text);
     font-size: 1rem; font-family: inherit;
     outline: none; transition: border-color 0.2s, box-shadow 0.2s;
-  }
+}
+.search-icon {
+    position: absolute; left: 1rem; top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted); pointer-events: none;
+}
   .search-box::placeholder { color: var(--text-muted); }
   .search-box:focus {
     border-color: var(--accent);
     box-shadow: 0 0 20px var(--accent-glow);
-  }
-  .search-icon {
-    position: absolute; left: 1rem; top: 50%;
-    transform: translateY(-50%);
-    color: var(--text-muted); pointer-events: none;
   }
 
   .systems-grid {
@@ -616,7 +616,7 @@
         </ul>
       </div>
       <div class="pricing-card featured">
-        <div class="price-name">Unlimited</div>
+        <div class="price-name">Unlimited Stations</div>
         <div class="price-tag"><span class="currency">$</span>2.99</div>
         <div class="price-period">One-time purchase</div>
         <ul class="price-features">
