@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dock Widget — Never Miss a Bike Again</title>
+<title>Bikeshare Dock Widget — Never Miss a Bike Again</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -15,10 +15,10 @@
     --border: #2a2a33;
     --text: #f0eff4;
     --text-muted: #8b8a94;
-    --accent: #4879d4;
-    --accent-dim: #3e68b4;
-    --accent-glow: rgba(72, 121, 212, 0.12);
-    --accent-glow-strong: rgba(72, 121, 212, 0.25);
+    --accent: #3bf58e;
+    --accent-dim: #2bc96f;
+    --accent-glow: rgba(59, 245, 142, 0.12);
+    --accent-glow-strong: rgba(59, 245, 142, 0.25);
     --warm: #f5c53b;
   }
 
@@ -204,11 +204,10 @@
     font-size: clamp(2rem, 5vw, 3.2rem);
     font-weight: 400; line-height: 1.15;
     letter-spacing: -0.02em;
-    max-width: 600px;
   }
   .section-desc {
     color: var(--text-muted); font-size: 1.05rem;
-    max-width: 500px; margin-top: 1rem; line-height: 1.7;
+    margin-top: 1rem; line-height: 1.7;
   }
 
   /* ---- HOW IT WORKS ---- */
@@ -261,10 +260,10 @@
 
   /* ---- PRICING ---- */
   .pricing { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-  .pricing-cards {
+.pricing-cards {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem; margin-top: 3rem; max-width: 700px;
-  }
+    gap: 1.5rem; margin: 3rem auto 0; max-width: 700px;
+}
   .pricing-card {
     padding: 2.5rem;
     border-radius: 20px;
@@ -278,7 +277,7 @@
     box-shadow: 0 0 40px var(--accent-glow);
   }
   .pricing-card.featured::before {
-    content: 'MOST POPULAR';
+    content: 'Pro';
     position: absolute; top: -10px; right: 1.5rem;
     background: var(--accent); color: var(--bg);
     padding: 0.2rem 0.8rem; border-radius: 6px;
@@ -394,10 +393,55 @@
   @media (max-width: 768px) {
     nav { padding: 0.8rem 1rem; }
     .nav-links { display: none; }
-    section { padding: 4rem 1.2rem; }
-    .pricing-cards { grid-template-columns: 1fr; }
-    .systems-stats { gap: 2rem; }
-    .hero-ctas { flex-direction: column; align-items: center; }
+
+    section { padding: 3.5rem 1.2rem; }
+
+    .hero { min-height: auto; padding: 6rem 1.2rem 3rem; }
+    .hero::before { width: 400px; height: 400px; }
+    .badge { font-size: 0.75rem; padding: 0.35rem 0.8rem; margin-bottom: 1.5rem; }
+    h1 { font-size: clamp(2.2rem, 10vw, 3.2rem); max-width: 100%; }
+    .hero-sub { font-size: 1rem; max-width: 100%; margin-top: 1rem; }
+    .hero-ctas { flex-direction: column; align-items: stretch; gap: 0.8rem; margin-top: 2rem; }
+    .btn-primary, .btn-secondary {
+      justify-content: center; width: 100%;
+      padding: 0.9rem 1.4rem; font-size: 0.95rem;
+    }
+    .hero-mockup { margin-top: 2.5rem; }
+    .mockup-frame { width: 280px; height: 170px; border-radius: 16px; }
+
+    .section-title { font-size: clamp(1.7rem, 7vw, 2.4rem); max-width: 100%; }
+    .section-desc { font-size: 0.95rem; max-width: 100%; }
+
+    .steps { grid-template-columns: 1fr; gap: 1rem; margin-top: 2rem; }
+    .step { padding: 1.5rem; }
+
+    .screenshots-grid { grid-template-columns: 1fr; gap: 1rem; margin-top: 2rem; }
+    .screenshot-img { aspect-ratio: 9/14; }
+
+    .pricing-cards { grid-template-columns: 1fr; max-width: 100%; gap: 1rem; margin-top: 2rem; }
+    .pricing-card { padding: 2rem 1.5rem; }
+    .price-tag { font-size: 2.2rem; }
+
+    .systems-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .systems-stats { gap: 1.5rem; margin-top: 1.5rem; }
+    .stat-num { font-size: 2rem; }
+    .search-container { margin-top: 2rem; }
+    .search-box { max-width: 100%; font-size: 0.95rem; padding: 0.9rem 1rem 0.9rem 2.8rem; }
+    .systems-grid {
+      grid-template-columns: 1fr;
+      max-height: 350px; gap: 0.4rem; margin-top: 1rem;
+    }
+    .system-name { white-space: normal; }
+
+    footer { padding: 3rem 1.2rem; }
+    footer p { font-size: 0.8rem; }
+  }
+
+  @media (max-width: 380px) {
+    h1 { font-size: 2rem; }
+    .section-title { font-size: 1.5rem; }
+    .badge { font-size: 0.7rem; }
+    .pricing-card { padding: 1.5rem 1.2rem; }
   }
 
   /* ---- SCROLL ANIMATIONS ---- */
@@ -413,8 +457,8 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
-    <span class="icon">🚲</span>
-    Dock Widget
+    <span class="icon"><img src="assets/app_icon.svg" alt="" style="width: 18px; height: 18px;"></span>
+    Bikeshare Dock Widget
   </a>
   <div class="nav-links">
     <a href="#features">Features</a>
@@ -432,7 +476,7 @@
   </div>
   <h1>Never miss a <em>bike</em> again.</h1>
   <p class="hero-sub">
-    Check dock availability at a glance. No app to open, no loading screens. Just swipe to your home screen and go.
+    Check bikeshare dock availability at a glance on your home screen.
   </p>
   <div class="hero-ctas">
     <a href="#REPLACE_PLAYSTORE_LINK" class="btn-primary">
@@ -462,14 +506,14 @@
     <div class="section-label">How it works</div>
     <h2 class="section-title">Bikeshare availability, one glance away</h2>
     <p class="section-desc">
-      Dock Widget puts real-time bike and dock counts directly on your home screen widget. Built for the daily commuter who needs to know before they walk.
+      Bikeshare Dock Widget puts real-time bike and dock counts directly on your home screen widget. Built for the daily commuter who needs to know before they walk.
     </p>
 
     <div class="steps">
       <div class="step reveal">
         <div class="step-num">1</div>
         <h3>Pick your city</h3>
-        <p>Choose from 600+ bikeshare systems worldwide. Powered by the GBFS open data standard used by transit systems globally.</p>
+        <p>Choose from 700+ bikeshare systems worldwide. Powered by the GBFS open data standard used by transit systems globally.</p>
       </div>
       <div class="step reveal">
         <div class="step-num">2</div>
@@ -492,24 +536,22 @@
   <div class="screenshots-grid">
     <div class="screenshot-card reveal">
       <div class="screenshot-img">
-        <!-- REPLACE: Widget on home screen screenshot -->
-        📱 Widget on Home Screen
+         <img src="assets/device_city_search.jpg" alt="Widget on Home Screen" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
-      <div class="screenshot-label">Real-time availability at a glance</div>
+      <div class="screenshot-label">Search for your bikeshare program</div>
     </div>
     <div class="screenshot-card reveal">
       <div class="screenshot-img">
-        <!-- REPLACE: City selection / map screenshot -->
-        🗺️ Interactive Station Map
+        <img src="assets/device_map.jpg" alt="Interactive Station Map" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
       <div class="screenshot-label">Find and pin your favorite stations</div>
     </div>
     <div class="screenshot-card reveal">
       <div class="screenshot-img">
         <!-- REPLACE: Multiple widgets screenshot -->
-        ⚡ Multiple Dock Widgets
+          <img src="assets/device_home_screen.jpg" alt="Interactive Station Map" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
-      <div class="screenshot-label">Track multiple docks with one-time unlock</div>
+      <div class="screenshot-label">Receive realtime dock updates</div>
     </div>
   </div>
 </section>
@@ -531,7 +573,7 @@
         <ul class="price-features">
           <li>1 dock widget on your home screen</li>
           <li>Real-time bike & dock availability</li>
-          <li>600+ global bikeshare systems</li>
+          <li>700+ global bikeshare systems</li>
           <li>Interactive station map</li>
         </ul>
       </div>
@@ -556,13 +598,13 @@
   <div class="systems-header">
     <div>
       <div class="section-label">Global coverage</div>
-      <h2 class="section-title">Works with 1,000+ bikeshare systems worldwide</h2>
+      <h2 class="section-title">Works with hundreds of bikeshare systems worldwide</h2>
       <p class="section-desc">
         Powered by the open GBFS data standard. If your city has a bikeshare, chances are we've got it.
       </p>
       <div class="systems-stats">
         <div class="stat-item">
-          <div class="stat-num" id="system-count">635</div>
+          <div class="stat-num" id="system-count">—</div>
           <div class="stat-label">Systems</div>
         </div>
         <div class="stat-item">
@@ -605,655 +647,27 @@
 
 <footer>
   <div class="footer-logo">
-    <span class="icon">🚲</span>
-    Dock Widget
+  <span class="icon"><img src="assets/app_icon.svg" alt="" style="width: 18px; height: 18px;"></span>
+    Bikeshare Dock Widget
   </div>
   <p>Built with ☕ in NYC. Powered by <a href="https://gbfs.org" target="_blank">GBFS open data</a>.</p>
-  <p style="margin-top: 0.5rem;">© 2025 Dock Widget. All rights reserved.</p>
+  <p style="margin-top: 0.5rem;">© 2025 Bikeshare Dock Widget. All rights reserved.</p>
 </footer>
 
 <script>
-// ---- SYSTEMS DATA ----
-const SYSTEMS = [
-  {n:"Citi Bike",l:"New York, NY",c:"US"},
-  {n:"Divvy",l:"Chicago, IL",c:"US"},
-  {n:"Capital Bike Share",l:"Washington, DC",c:"US"},
-  {n:"Blue Bikes",l:"Boston, MA",c:"US"},
-  {n:"Bay Wheels",l:"San Francisco, CA",c:"US"},
-  {n:"Bike Share Toronto",l:"Toronto",c:"CA"},
-  {n:"BIXI Montréal",l:"Montreal",c:"CA"},
-  {n:"Metro Bike Share",l:"Los Angeles, CA",c:"US"},
-  {n:"CoGo",l:"Columbus, OH",c:"US"},
-  {n:"Pogoh",l:"Pittsburgh, PA",c:"US"},
-  {n:"Santander Cycles - Milton Keynes",l:"Milton Keynes",c:"GB"},
-  {n:"Vélib' Métropole",l:"Paris",c:"FR"},
-  {n:"Vélibéo",l:"Brive-la-Gaillarde",c:"FR"},
-  {n:"Ecobici",l:"Buenos Aires",c:"AR"},
-  {n:"Ecobici",l:"Mexico City",c:"MX"},
-  {n:"Bicing",l:"Barcelona",c:"ES"},
-  {n:"Dublinbikes",l:"Dublin",c:"IE"},
-  {n:"Bike Chattanooga",l:"Chattanooga, TN",c:"US"},
-  {n:"Indego",l:"Philadelphia, PA",c:"US"},
-  {n:"BiciMAD",l:"Madrid",c:"ES"},
-  {n:"BIKETOWN",l:"Portland, OR",c:"US"},
-  {n:"Nike Biketown",l:"Beaverton, OR",c:"US"},
-  {n:"2EM Car Sharing",l:"Switzerland",c:"CH"},
-  {n:"3electra",l:"Kyiv",c:"UA"},
-  {n:"AAR Bike",l:"Konya",c:"TR"},
-  {n:"Accès Vélo",l:"Saguenay",c:"CA"},
-  {n:"Alba Iulia Velocity",l:"Alba Iulia",c:"RO"},
-  {n:"Altervelo",l:"Saint-Pierre",c:"FR"},
-  {n:"AMBici",l:"Barcelona",c:"ES"},
-  {n:"Amicarnapoli",l:"Naples",c:"IT"},
-  {n:"AQTA",l:"Auray",c:"FR"},
-  {n:"Arriva Bike",l:"Nitra",c:"SK"},
-  {n:"AuxR_M le vélo",l:"Auxerre",c:"FR"},
-  {n:"Aventura BCycle",l:"Aventura, FL",c:"US"},
-  {n:"AW-bike",l:"Remagen",c:"DE"},
-  {n:"Bajs Zagreb",l:"Zagreb",c:"HR"},
-  {n:"BBK Klimabizi",l:"Urdaibai",c:"ES"},
-  {n:"Bentonville BCycle",l:"Bentonville, AR",c:"US"},
-  {n:"Bergen City Bike",l:"Bergen",c:"NO"},
-  {n:"Bergisches e-Bike",l:"Bergisches",c:"DE"},
-  {n:"Beryl - BCP",l:"Bournemouth",c:"GB"},
-  {n:"Beryl - Brighton",l:"Brighton",c:"GB"},
-  {n:"Beryl - Cornwall",l:"Cornwall",c:"GB"},
-  {n:"Beryl - Greater Manchester",l:"Manchester",c:"GB"},
-  {n:"Beryl - Hereford",l:"Hereford",c:"GB"},
-  {n:"Beryl - Isle of Wight",l:"Isle of Wight",c:"GB"},
-  {n:"Beryl - Leeds",l:"Leeds",c:"GB"},
-  {n:"Beryl - Norwich",l:"Norwich",c:"GB"},
-  {n:"Beryl - Plymouth",l:"Plymouth",c:"GB"},
-  {n:"Beryl - Portsmouth",l:"Portsmouth",c:"GB"},
-  {n:"Beryl - Southampton",l:"Southampton",c:"GB"},
-  {n:"Beryl - West Midlands",l:"West Midlands",c:"GB"},
-  {n:"Beryl - Worcester",l:"Worcester",c:"GB"},
-  {n:"Beryl Belfast",l:"Belfast",c:"GB"},
-  {n:"bibo",l:"Boadilla del Monte",c:"ES"},
-  {n:"biciArteixo",l:"Arteixo",c:"ES"},
-  {n:"Bicicoruña",l:"A Coruña",c:"ES"},
-  {n:"BicikeLJ",l:"Ljubljana",c:"SI"},
-  {n:"BiciMislata",l:"Mislata",c:"ES"},
-  {n:"BicinRivas",l:"Rivas-Vaciamadrid",c:"ES"},
-  {n:"BiciPalma",l:"Palma",c:"ES"},
-  {n:"Bike Brasilia",l:"Brasilia",c:"BR"},
-  {n:"Bike Estácio",l:"Curitiba",c:"BR"},
-  {n:"Bike Itaú - Pernambuco",l:"Recife",c:"BR"},
-  {n:"Bike Itaú - Rio",l:"Rio de Janeiro",c:"BR"},
-  {n:"Bike Itaú - Salvador",l:"Salvador",c:"BR"},
-  {n:"Bike Itaú - Sampa",l:"São Paulo",c:"BR"},
-  {n:"Bike Itaú - Santiago",l:"Santiago",c:"CL"},
-  {n:"Bike Nordelta",l:"Buenos Aires",c:"AR"},
-  {n:"Bike Porto Alegre",l:"Porto Alegre",c:"BR"},
-  {n:"Bike Sharing Alimos",l:"Alimos",c:"GR"},
-  {n:"Bike Sharing Glyfada",l:"Glyfada",c:"GR"},
-  {n:"BikeKIA",l:"Žilina",c:"SK"},
-  {n:"BikeLNK",l:"Lincoln, NE",c:"US"},
-  {n:"Biki",l:"Honolulu, HI",c:"US"},
-  {n:"Bilbao Bizi",l:"Bilbao",c:"ES"},
-  {n:"Bizi",l:"Zaragoza",c:"ES"},
-  {n:"bizkaibizi",l:"Bilbao",c:"ES"},
-  {n:"BL bike",l:"Banja Luka",c:"BA"},
-  {n:"Bleeper Bikes",l:"Dublin",c:"IE"},
-  {n:"Blue-bike",l:"Antwerp",c:"BE"},
-  {n:"Bogotá",l:"Bogotá",c:"CO"},
-  {n:"Bolt Bergen",l:"Bergen",c:"NO"},
-  {n:"Bolt Karlsruhe",l:"Karlsruhe",c:"DE"},
-  {n:"Bolt Oslo",l:"Oslo",c:"NO"},
-  {n:"Bolt Reutlingen",l:"Reutlingen",c:"DE"},
-  {n:"Bolt Stuttgart",l:"Stuttgart",c:"DE"},
-  {n:"Bolt Technology OÜ",l:"Brussels",c:"BE"},
-  {n:"Bolt Technology OÜ",l:"Basel",c:"CH"},
-  {n:"Bolt Technology OÜ",l:"Zurich",c:"CH"},
-  {n:"Bora",l:"Viseu",c:"PT"},
-  {n:"Boulder BCycle",l:"Boulder, CO",c:"US"},
-  {n:"Bre.Bike",l:"Bremen",c:"DE"},
-  {n:"Broward B-cycle",l:"Fort Lauderdale, FL",c:"US"},
-  {n:"Bublr Bikes",l:"Milwaukee, WI",c:"US"},
-  {n:"Buzau VeloCity",l:"Buzau",c:"RO"},
-  {n:"Bysykkel",l:"Lillestrøm",c:"NO"},
-  {n:"C-Vélo",l:"Clermont-Ferrand",c:"FR"},
-  {n:"CaliVélo",l:"Libourne",c:"FR"},
-  {n:"Call a Bike",l:"Germany",c:"DE"},
-  {n:"CapCotentin",l:"Cherbourg",c:"FR"},
-  {n:"CapMetro",l:"Austin, TX",c:"US"},
-  {n:"Car-ship",l:"Constance",c:"CH"},
-  {n:"Careem BIKE",l:"Dubai",c:"AE"},
-  {n:"carvelo eCargo-Bike",l:"Switzerland",c:"CH"},
-  {n:"Check Amsterdam",l:"Amsterdam",c:"NL"},
-  {n:"Check Breda",l:"Breda",c:"NL"},
-  {n:"Check Delft",l:"Delft",c:"NL"},
-  {n:"Check Den Haag",l:"Den Haag",c:"NL"},
-  {n:"Check Eindhoven",l:"Eindhoven",c:"NL"},
-  {n:"Check Groningen",l:"Groningen",c:"NL"},
-  {n:"Check Rotterdam",l:"Rotterdam",c:"NL"},
-  {n:"Check Utrecht",l:"Utrecht",c:"NL"},
-  {n:"Chełmski Rower",l:"Chełm",c:"PL"},
-  {n:"Choletbus 2 Roues",l:"Cholet",c:"FR"},
-  {n:"Cincy Red Bike",l:"Cincinnati, OH",c:"US"},
-  {n:"Citiz Gironde",l:"Bordeaux",c:"FR"},
-  {n:"Citiz Grand Est",l:"Strasbourg",c:"FR"},
-  {n:"Citiz Métropole Lyon",l:"Lyon",c:"FR"},
-  {n:"Citiz Nantes",l:"Nantes",c:"FR"},
-  {n:"Citiz Occitanie",l:"Toulouse",c:"FR"},
-  {n:"Citiz Provence",l:"Marseille",c:"FR"},
-  {n:"city bike Linz",l:"Linz",c:"AT"},
-  {n:"Clemson BikeShare",l:"Clemson, SC",c:"US"},
-  {n:"Cycl'AM",l:"Ardenne Métropole",c:"FR"},
-  {n:"CyclOcity",l:"Toyama",c:"JP"},
-  {n:"Cyclocity",l:"Vilnius",c:"LT"},
-  {n:"Cyclolibre",l:"Carcassonne",c:"FR"},
-  {n:"Cyclovis",l:"Soissons",c:"FR"},
-  {n:"Cykl",l:"Wageningen",c:"NL"},
-  {n:"Dbizi",l:"Donostia",c:"ES"},
-  {n:"Deer",l:"Germany",c:"DE"},
-  {n:"Dej Velo City",l:"Dej",c:"RO"},
-  {n:"Des Moines B-cycle",l:"Des Moines, IA",c:"US"},
-  {n:"docomo bike share",l:"Japan",c:"JP"},
-  {n:"Donkey Republic Aalborg",l:"Aalborg",c:"DK"},
-  {n:"Donkey Republic Aarhus",l:"Aarhus",c:"DK"},
-  {n:"Donkey Republic Amsterdam",l:"Amsterdam",c:"NL"},
-  {n:"Donkey Republic Antwerp",l:"Antwerp",c:"BE"},
-  {n:"Donkey Republic Ballerup",l:"Ballerup",c:"DK"},
-  {n:"Donkey Republic Bamberg",l:"Bamberg",c:"DE"},
-  {n:"Donkey Republic Bandholm",l:"Bandholm",c:"DK"},
-  {n:"Donkey Republic Barcelona",l:"Barcelona",c:"ES"},
-  {n:"Donkey Republic Brest",l:"Brest",c:"FR"},
-  {n:"Donkey Republic Budapest",l:"Budapest",c:"HU"},
-  {n:"Donkey Republic Båstad",l:"Båstad",c:"SE"},
-  {n:"Donkey Republic Copenhagen",l:"Copenhagen",c:"DK"},
-  {n:"Donkey Republic Den Haag",l:"Den Haag",c:"NL"},
-  {n:"Donkey Republic Dordrecht",l:"Dordrecht",c:"NL"},
-  {n:"Donkey Republic Frederikshavn",l:"Frederikshavn",c:"DK"},
-  {n:"Donkey Republic Geneva",l:"Geneva",c:"CH"},
-  {n:"Donkey Republic Ghent",l:"Ghent",c:"BE"},
-  {n:"Donkey Republic Glostrup",l:"Glostrup",c:"DK"},
-  {n:"Donkey Republic Hamina",l:"Hamina",c:"FI"},
-  {n:"Donkey Republic Hannover",l:"Hanover",c:"DE"},
-  {n:"Donkey Republic Herning",l:"Herning",c:"DK"},
-  {n:"Donkey Republic Hillerød",l:"Hillerød",c:"DK"},
-  {n:"Donkey Republic Hyvinkää",l:"Hyvinkää",c:"FI"},
-  {n:"Donkey Republic Hämeenlinna",l:"Hämeenlinna",c:"FI"},
-  {n:"Donkey Republic Iisalmi",l:"Iisalmi",c:"FI"},
-  {n:"Donkey Republic Imatra",l:"Imatra",c:"FI"},
-  {n:"Donkey Republic Kiel",l:"Kiel",c:"DE"},
-  {n:"Donkey Republic Klampenborg",l:"Klampenborg",c:"DK"},
-  {n:"Donkey Republic Kortrijk & Leiedal",l:"Kortrijk",c:"BE"},
-  {n:"Donkey Republic Kotka",l:"Kotka",c:"FI"},
-  {n:"Donkey Republic Kouvola",l:"Kouvola",c:"FI"},
-  {n:"Donkey Republic Kreuzlingen",l:"Kreuzlingen",c:"CH"},
-  {n:"Donkey Republic Lappeenranta",l:"Lappeenranta",c:"FI"},
-  {n:"Donkey Republic Le Locle",l:"Le Locle",c:"CH"},
-  {n:"Donkey Republic Liechtenstein",l:"Liechtenstein",c:"LI"},
-  {n:"Donkey Republic Malmö",l:"Malmö",c:"SE"},
-  {n:"Donkey Republic Middelfart",l:"Middelfart",c:"DK"},
-  {n:"Donkey Republic Mikkeli",l:"Mikkeli",c:"FI"},
-  {n:"Donkey Republic Munich",l:"Munich",c:"DE"},
-  {n:"Donkey Republic Mäntsälä",l:"Mäntsälä",c:"FI"},
-  {n:"Donkey Republic Neuchâtel",l:"Neuchâtel",c:"CH"},
-  {n:"Donkey Republic Odense",l:"Odense",c:"DK"},
-  {n:"Donkey Republic Oxford",l:"Oxford",c:"GB"},
-  {n:"Donkey Republic Plymouth",l:"Plymouth",c:"GB"},
-  {n:"Donkey Republic Porvoo",l:"Porvoo",c:"FI"},
-  {n:"Donkey Republic Regensburg",l:"Regensburg",c:"DE"},
-  {n:"Donkey Republic Reykjavik",l:"Reykjavik",c:"IS"},
-  {n:"Donkey Republic Rotterdam",l:"Rotterdam",c:"NL"},
-  {n:"Donkey Republic Schleswig",l:"Schleswig",c:"DE"},
-  {n:"Donkey Republic Sion",l:"Sion",c:"CH"},
-  {n:"Donkey Republic Thun",l:"Thun",c:"CH"},
-  {n:"Donkey Republic Turku",l:"Turku",c:"FI"},
-  {n:"Donkey Republic Utrecht",l:"Utrecht",c:"NL"},
-  {n:"Donkey Republic Valenciennes",l:"Valenciennes",c:"FR"},
-  {n:"Donkey Republic Westhoek",l:"Westhoek",c:"BE"},
-  {n:"Donkey Republic Ystad",l:"Ystad",c:"SE"},
-  {n:"Donkey Republic Yverdon-les-Bains",l:"Yverdon",c:"CH"},
-  {n:"Dott Aachen",l:"Aachen",c:"DE"},
-  {n:"Dott Aalst",l:"Aalst",c:"BE"},
-  {n:"Dott Abu Dhabi",l:"Abu Dhabi",c:"AE"},
-  {n:"Dott Athens",l:"Athens",c:"GR"},
-  {n:"Dott Baden bei Wien",l:"Baden bei Wien",c:"AT"},
-  {n:"Dott Bari",l:"Bari",c:"IT"},
-  {n:"Dott Basel",l:"Basel",c:"CH"},
-  {n:"Dott Bath",l:"Bath",c:"GB"},
-  {n:"Dott Berlin",l:"Berlin",c:"DE"},
-  {n:"Dott Bielefeld",l:"Bielefeld",c:"DE"},
-  {n:"Dott Bochum",l:"Bochum",c:"DE"},
-  {n:"Dott Bonn",l:"Bonn",c:"DE"},
-  {n:"Dott Bordeaux",l:"Bordeaux",c:"FR"},
-  {n:"Dott Bratislava",l:"Bratislava",c:"SK"},
-  {n:"Dott Bregenz",l:"Bregenz",c:"AT"},
-  {n:"Dott Bremen",l:"Bremen",c:"DE"},
-  {n:"Dott Bristol",l:"Bristol",c:"GB"},
-  {n:"Dott Brussels",l:"Brussels",c:"BE"},
-  {n:"Dott Budapest",l:"Budapest",c:"HU"},
-  {n:"Dott Catania",l:"Catania",c:"IT"},
-  {n:"Dott Charleroi",l:"Charleroi",c:"BE"},
-  {n:"Dott Cologne",l:"Cologne",c:"DE"},
-  {n:"Dott Copenhagen",l:"Copenhagen",c:"DK"},
-  {n:"Dott Doha",l:"Doha",c:"QA"},
-  {n:"Dott Dornbirn",l:"Dornbirn",c:"AT"},
-  {n:"Dott Dortmund",l:"Dortmund",c:"DE"},
-  {n:"Dott Drammen",l:"Drammen",c:"NO"},
-  {n:"Dott Dubai",l:"Dubai",c:"AE"},
-  {n:"Dott Dubai Hills",l:"Dubai",c:"AE"},
-  {n:"Dott Duisburg",l:"Duisburg",c:"DE"},
-  {n:"Dott Dusseldorf",l:"Dusseldorf",c:"DE"},
-  {n:"Dott Eindhoven",l:"Eindhoven",c:"NL"},
-  {n:"Dott Espoo",l:"Espoo",c:"FI"},
-  {n:"Dott Essen",l:"Essen",c:"DE"},
-  {n:"Dott Estepona",l:"Estepona",c:"ES"},
-  {n:"Dott Feldkirchen bei Graz",l:"Feldkirchen bei Graz",c:"AT"},
-  {n:"Dott Frankfurt",l:"Frankfurt",c:"DE"},
-  {n:"Dott Gdansk",l:"Gdansk",c:"PL"},
-  {n:"Dott Ghent",l:"Ghent",c:"BE"},
-  {n:"Dott Gothenburg",l:"Gothenburg",c:"SE"},
-  {n:"Dott Gyor",l:"Gyor",c:"HU"},
-  {n:"Dott Hamburg",l:"Hamburg",c:"DE"},
-  {n:"Dott Hannover",l:"Hannover",c:"DE"},
-  {n:"Dott Heidelberg",l:"Heidelberg",c:"DE"},
-  {n:"Dott Helsingborg",l:"Helsingborg",c:"SE"},
-  {n:"Dott Helsinki",l:"Helsinki",c:"FI"},
-  {n:"Dott Herzliya",l:"Herzliya",c:"IL"},
-  {n:"Dott Ibiza",l:"Ibiza",c:"ES"},
-  {n:"Dott Innsbruck",l:"Innsbruck",c:"AT"},
-  {n:"Dott Jeddah",l:"Jeddah",c:"SA"},
-  {n:"Dott Jonkoping",l:"Jönköping",c:"SE"},
-  {n:"Dott Jyvaskyla",l:"Jyvaskyla",c:"FI"},
-  {n:"Dott Karlsruhe",l:"Karlsruhe",c:"DE"},
-  {n:"Dott Katowice",l:"Katowice",c:"PL"},
-  {n:"Dott Kiel",l:"Kiel",c:"DE"},
-  {n:"Dott Klagenfurt",l:"Klagenfurt",c:"AT"},
-  {n:"Dott Klopein",l:"Carinthia",c:"AT"},
-  {n:"Dott Korneuburg",l:"Korneuburg",c:"AT"},
-  {n:"Dott Kosice",l:"Košice",c:"SK"},
-  {n:"Dott Krakow",l:"Krakow",c:"PL"},
-  {n:"Dott Kuopio",l:"Kuopio",c:"FI"},
-  {n:"Dott Lahti",l:"Lahti",c:"FI"},
-  {n:"Dott Leipzig",l:"Leipzig",c:"DE"},
-  {n:"Dott Leoben",l:"Leoben",c:"AT"},
-  {n:"Dott Liege",l:"Liege",c:"BE"},
-  {n:"Dott Linz",l:"Linz",c:"AT"},
-  {n:"Dott Lyon",l:"Lyon",c:"FR"},
-  {n:"Dott Mainz",l:"Mainz",c:"DE"},
-  {n:"Dott Makkah",l:"Makkah",c:"SA"},
-  {n:"Dott Mannheim",l:"Mannheim",c:"DE"},
-  {n:"Dott Milan",l:"Milan",c:"IT"},
-  {n:"Dott Milton Keynes",l:"Milton Keynes",c:"GB"},
-  {n:"Dott Miskolc",l:"Miskolc",c:"HU"},
-  {n:"Dott Modena",l:"Modena",c:"IT"},
-  {n:"Dott Munich",l:"Munich",c:"DE"},
-  {n:"Dott Murcia",l:"Murcia",c:"ES"},
-  {n:"Dott Mödling",l:"Mödling",c:"AT"},
-  {n:"Dott Münster",l:"Münster",c:"DE"},
-  {n:"Dott Nitra",l:"Nitra",c:"SK"},
-  {n:"Dott Nottingham",l:"Nottingham",c:"GB"},
-  {n:"Dott Nuremberg",l:"Nuremberg",c:"DE"},
-  {n:"Dott Oulu",l:"Oulu",c:"FI"},
-  {n:"Dott Padua",l:"Padua",c:"IT"},
-  {n:"Dott Palermo",l:"Palermo",c:"IT"},
-  {n:"Dott Paris",l:"Paris",c:"FR"},
-  {n:"Dott Poznan",l:"Poznan",c:"PL"},
-  {n:"Dott Ras Al Khaimah",l:"Ras Al Khaimah",c:"AE"},
-  {n:"Dott Region Hovedstaden",l:"Region Hovedstaden",c:"DK"},
-  {n:"Dott Riyadh",l:"Riyadh",c:"SA"},
-  {n:"Dott Romanshorn",l:"Romanshorn",c:"CH"},
-  {n:"Dott Rome",l:"Rome",c:"IT"},
-  {n:"Dott Rorschach",l:"Rorschach",c:"CH"},
-  {n:"Dott Roskilde",l:"Roskilde",c:"DK"},
-  {n:"Dott Saint Anton am Arlberg",l:"Saint Anton am Arlberg",c:"AT"},
-  {n:"Dott Serfaus",l:"Serfaus",c:"AT"},
-  {n:"Dott Sharjah",l:"Sharjah",c:"AE"},
-  {n:"Dott St. Gallen",l:"St. Gallen",c:"CH"},
-  {n:"Dott Steyr",l:"Steyr",c:"AT"},
-  {n:"Dott Stuttgart",l:"Stuttgart",c:"DE"},
-  {n:"Dott Szczecin",l:"Szczecin",c:"PL"},
-  {n:"Dott Tampere",l:"Tampere",c:"FI"},
-  {n:"Dott Tarragona",l:"Tarragona",c:"ES"},
-  {n:"Dott Tel-Aviv",l:"Tel Aviv",c:"IL"},
-  {n:"Dott Tenerife",l:"Tenerife",c:"ES"},
-  {n:"Dott Thessaloniki",l:"Thessaloniki",c:"GR"},
-  {n:"Dott Toruń",l:"Toruń",c:"PL"},
-  {n:"Dott Trento",l:"Trento",c:"IT"},
-  {n:"Dott Trondheim",l:"Trondheim",c:"NO"},
-  {n:"Dott Turin",l:"Turin",c:"IT"},
-  {n:"Dott Turku",l:"Turku",c:"FI"},
-  {n:"Dott Utrecht",l:"Utrecht",c:"NL"},
-  {n:"Dott Vaasa",l:"Vaasa",c:"FI"},
-  {n:"Dott Vantaa",l:"Vantaa",c:"FI"},
-  {n:"Dott Velden-Am-Worthersee",l:"Velden-Am-Worthersee",c:"AT"},
-  {n:"Dott Verona",l:"Verona",c:"IT"},
-  {n:"Dott Villach",l:"Villach",c:"AT"},
-  {n:"Dott Warsaw",l:"Warsaw",c:"PL"},
-  {n:"Dott Wels",l:"Wels",c:"AT"},
-  {n:"Dott Winterthur",l:"Winterthur",c:"CH"},
-  {n:"Dott Wrocław",l:"Wrocław",c:"PL"},
-  {n:"Dott Wuppertal",l:"Wuppertal",c:"DE"},
-  {n:"Dott Zurich",l:"Zurich",c:"CH"},
-  {n:"EDEKA Grünheide",l:"Grünheide",c:"DE"},
-  {n:"edrive carsharing",l:"Switzerland",c:"CH"},
-  {n:"Eifel e-Bike",l:"Eifel",c:"DE"},
-  {n:"Einfach Unterwegs",l:"Germany",c:"DE"},
-  {n:"EinfachMobil",l:"Ortenaukreis",c:"DE"},
-  {n:"El Paso B-cycle",l:"El Paso, TX",c:"US"},
-  {n:"Evie Carshare",l:"Twin Cities, MN",c:"US"},
-  {n:"Explore Bike Share",l:"Memphis, TN",c:"US"},
-  {n:"Fa.Mo.Se",l:"Senigallia",c:"IT"},
-  {n:"Farte Bysykkel",l:"Skien",c:"NO"},
-  {n:"Felyx Amsterdam",l:"Amsterdam",c:"NL"},
-  {n:"Felyx Antwerp",l:"Antwerp",c:"BE"},
-  {n:"Felyx Brussels",l:"Brussels",c:"BE"},
-  {n:"Felyx Eindhoven",l:"Eindhoven",c:"NL"},
-  {n:"Felyx Groningen",l:"Groningen",c:"NL"},
-  {n:"Felyx Haarlem",l:"Haarlem",c:"NL"},
-  {n:"Felyx Rotterdam",l:"Rotterdam",c:"NL"},
-  {n:"Flamingo Auckland",l:"Auckland",c:"NZ"},
-  {n:"Flamingo Christchurch",l:"Christchurch",c:"NZ"},
-  {n:"Flamingo Dunedin",l:"Dunedin",c:"NZ"},
-  {n:"Flamingo Palmerston North",l:"Palmerston North",c:"NZ"},
-  {n:"Flamingo Tauranga",l:"Tauranga",c:"NZ"},
-  {n:"Flamingo Wellington",l:"Wellington",c:"NZ"},
-  {n:"flux Bikesharing",l:"Friedrichsdorf",c:"DE"},
-  {n:"Frelo",l:"Freiburg",c:"DE"},
-  {n:"Ganxeta",l:"Reus",c:"ES"},
-  {n:"GoAbout",l:"Netherlands",c:"NL"},
-  {n:"Gothenburg Cargo",l:"Gothenburg",c:"SE"},
-  {n:"GREENbike",l:"Salt Lake City, UT",c:"US"},
-  {n:"Greenbike Aruba",l:"Aruba",c:"AW"},
-  {n:"Greenville B-cycle",l:"Greenville, SC",c:"US"},
-  {n:"Heartland B-cycle",l:"Omaha, NE",c:"US"},
-  {n:"HelBi",l:"Soest",c:"DE"},
-  {n:"HELLO CYCLING",l:"Japan",c:"JP"},
-  {n:"Heraeus Hanau",l:"Hanau",c:"DE"},
-  {n:"HIBike",l:"Kona, HI",c:"US"},
-  {n:"Hunedoara",l:"Hunedoara",c:"RO"},
-  {n:"Hyre",l:"Norway",c:"NO"},
-  {n:"IDEcycle",l:"Pau",c:"FR"},
-  {n:"Impulsyon",l:"La Roche-sur-Yon",c:"FR"},
-  {n:"Indy - Pacers Bikeshare",l:"Indianapolis, IN",c:"US"},
-  {n:"invia BikeShare",l:"Chur",c:"CH"},
-  {n:"Jackson County",l:"Jackson, MI",c:"US"},
-  {n:"JasKółka",l:"Jastrzębie-Zdrój",c:"PL"},
-  {n:"Joe Rauma",l:"Rauma",c:"FI"},
-  {n:"JOLT Hutt Valley",l:"Hutt Valley",c:"NZ"},
-  {n:"JOLT New Plymouth",l:"New Plymouth",c:"NZ"},
-  {n:"Karu'Vélo",l:"Pointe-à-Pitre",c:"FR"},
-  {n:"Knot Strasbourg",l:"Strasbourg",c:"FR"},
-  {n:"Kolumbus Bysykkel",l:"Stavanger",c:"NO"},
-  {n:"Koniński Rower Miejski",l:"Konin",c:"PL"},
-  {n:"Koszaliński Rower Miejski",l:"Koszalin",c:"PL"},
-  {n:"kotobike",l:"Japan",c:"JP"},
-  {n:"KVB Rad",l:"Cologne",c:"DE"},
-  {n:"KVV.nextbike",l:"Karlsruhe",c:"DE"},
-  {n:"La Baule",l:"La Baule",c:"FR"},
-  {n:"Landkreis Nordsachsen",l:"Nordsachsen",c:"DE"},
-  {n:"LastenVelo Freiburg",l:"Freiburg",c:"DE"},
-  {n:"Le Marcel",l:"Troyes",c:"FR"},
-  {n:"Le Vélo par TBM",l:"Bordeaux",c:"FR"},
-  {n:"LE vélo STAR",l:"Rennes",c:"FR"},
-  {n:"Les Petites Reines",l:"Les Sables-d'Olonne",c:"FR"},
-  {n:"levélo",l:"Marseille",c:"FR"},
-  {n:"Li Bia Velo",l:"Namur",c:"BE"},
-  {n:"Libélo",l:"Valence",c:"FR"},
-  {n:"LIEmobil Liechtenstein",l:"Liechtenstein",c:"LI"},
-  {n:"LocoMotion Montreal",l:"Montreal",c:"CA"},
-  {n:"LocoMotion Sherbrooke",l:"Sherbrooke",c:"CA"},
-  {n:"LOVELO Libre-service",l:"Rouen",c:"FR"},
-  {n:"Lovesharing",l:"Canary Islands",c:"ES"},
-  {n:"Lundahoj",l:"Lund",c:"SE"},
-  {n:"Lyft DC",l:"Washington, DC",c:"US"},
-  {n:"Lyft Scooters Denver",l:"Denver, CO",c:"US"},
-  {n:"Madison B-cycle",l:"Madison, WI",c:"US"},
-  {n:"MBajk",l:"Maribor",c:"SI"},
-  {n:"Mein konrad",l:"Konstanz",c:"DE"},
-  {n:"meinSiggi",l:"Bielefeld",c:"DE"},
-  {n:"metropolradruhr",l:"Ruhr",c:"DE"},
-  {n:"METROROWER",l:"Tychy",c:"PL"},
-  {n:"MEVO",l:"Gdańsk",c:"PL"},
-  {n:"Mibici Guadalajara",l:"Guadalajara",c:"MX"},
-  {n:"MiBiciTuBici",l:"Rosario",c:"AR"},
-  {n:"Mikar",l:"Germany",c:"DE"},
-  {n:"Milan Bikemi",l:"Milan",c:"IT"},
-  {n:"Mobi Bike Share",l:"Vancouver",c:"CA"},
-  {n:"MOBIbike",l:"Dresden",c:"DE"},
-  {n:"mobic",l:"Rhein-Erft-Kreis",c:"DE"},
-  {n:"Mobility",l:"Switzerland",c:"CH"},
-  {n:"Moby Dublin",l:"Dublin",c:"IE"},
-  {n:"Mogo Detroit",l:"Detroit, MI",c:"US"},
-  {n:"Moinesti",l:"Moinesti",c:"RO"},
-  {n:"MonaBike",l:"Monaco",c:"MC"},
-  {n:"movemix_bike",l:"Halle",c:"DE"},
-  {n:"moxsi",l:"Las Palmas",c:"ES"},
-  {n:"MyBuxi",l:"Switzerland",c:"CH"},
-  {n:"Naolib",l:"Nantes",c:"FR"},
-  {n:"Nashville BCycle",l:"Nashville, TN",c:"US"},
-  {n:"Naturenergie sharing",l:"South Baden",c:"DE"},
-  {n:"Neuron Mobility",l:"Calgary",c:"CA"},
-  {n:"Neuron Mobility",l:"Edmonton",c:"CA"},
-  {n:"Neuron Mobility",l:"Ottawa",c:"CA"},
-  {n:"Neuron Mobility Newcastle",l:"Newcastle",c:"GB"},
-  {n:"NEW MöBus nextbike",l:"Mönchengladbach",c:"DE"},
-  {n:"nextbike BE Vlaamse Rand",l:"Brussels",c:"BE"},
-  {n:"nextbike Benešov",l:"Benešov",c:"CZ"},
-  {n:"nextbike Bergamo",l:"Bergamo",c:"IT"},
-  {n:"nextbike Berlin",l:"Berlin",c:"DE"},
-  {n:"nextbike Berounsko",l:"Berounsko",c:"CZ"},
-  {n:"nextbike BiciLOG",l:"Logroño",c:"ES"},
-  {n:"nextbike BIH",l:"Bosnia and Herzegovina",c:"BA"},
-  {n:"nextbike Brno",l:"Brno",c:"CZ"},
-  {n:"nextbike Cyprus",l:"Cyprus",c:"CY"},
-  {n:"nextbike Dvůr Králové",l:"Dvůr Králové",c:"CZ"},
-  {n:"nextbike Düsseldorf",l:"Düsseldorf",c:"DE"},
-  {n:"nextbike Frankfurt",l:"Frankfurt",c:"DE"},
-  {n:"nextbike Frýdek-Místek",l:"Frýdek-Místek",c:"CZ"},
-  {n:"nextbike Gießen",l:"Gießen",c:"DE"},
-  {n:"nextbike Gütersloh",l:"Gütersloh",c:"DE"},
-  {n:"nextbike Hannover",l:"Hannover",c:"DE"},
-  {n:"nextbike Hodonín",l:"Hodonín",c:"CZ"},
-  {n:"nextbike Hořice",l:"Hořice",c:"CZ"},
-  {n:"nextbike Hradec Králové",l:"Hradec Králové",c:"CZ"},
-  {n:"nextbike Jablonec",l:"Jablonec",c:"CZ"},
-  {n:"nextbike Jičín",l:"Jičín",c:"CZ"},
-  {n:"nextbike Kahan",l:"Kahan",c:"CZ"},
-  {n:"nextbike Karlovac",l:"Karlovac",c:"HR"},
-  {n:"nextbike Kassel",l:"Kassel",c:"DE"},
-  {n:"nextbike Kladno",l:"Kladno",c:"CZ"},
-  {n:"nextbike Klagenfurt Austria",l:"Klagenfurt",c:"AT"},
-  {n:"nextbike Klášterec nad Ohří",l:"Klášterec nad Ohří",c:"CZ"},
-  {n:"nextbike Kolín",l:"Kolín",c:"CZ"},
-  {n:"nextbike Leipzig",l:"Leipzig",c:"DE"},
-  {n:"nextbike León",l:"León",c:"ES"},
-  {n:"nextbike Liberec",l:"Liberec",c:"CZ"},
-  {n:"nextbike Lovosice",l:"Lovosice",c:"CZ"},
-  {n:"nextbike LV",l:"Rīga",c:"LV"},
-  {n:"nextbike Marburg",l:"Marburg",c:"DE"},
-  {n:"nextbike Mladoboleslavsko",l:"Mladoboleslavsko",c:"CZ"},
-  {n:"nextbike Moravská Třebová",l:"Moravská Třebová",c:"CZ"},
-  {n:"nextbike Most",l:"Most",c:"CZ"},
-  {n:"nextbike Niederösterreich",l:"Austria",c:"AT"},
-  {n:"nextbike Norderstedt",l:"Norderstedt",c:"DE"},
-  {n:"nextbike OlbramoviceVotice",l:"OlbramoviceVotice",c:"CZ"},
-  {n:"nextbike Olomouc",l:"Olomouc",c:"CZ"},
-  {n:"nextbike Opava",l:"Opava",c:"CZ"},
-  {n:"nextbike Ostrava",l:"Ostrava",c:"CZ"},
-  {n:"nextbike Pelhřimov",l:"Pelhřimov",c:"CZ"},
-  {n:"nextbike Praha",l:"Praha",c:"CZ"},
-  {n:"nextbike Písek",l:"Písek",c:"CZ"},
-  {n:"nextbike Přerov",l:"Přerov",c:"CZ"},
-  {n:"nextbike Rychnovsko",l:"Rychnovsko",c:"CZ"},
-  {n:"nextbike Rüsselsheim",l:"Rüsselsheim",c:"DE"},
-  {n:"nextbike Sisak",l:"Sisak",c:"HR"},
-  {n:"nextbike Slavonski Brod",l:"Slavonski Brod",c:"HR"},
-  {n:"nextbike Split",l:"Split",c:"HR"},
-  {n:"nextbike Stirling",l:"Stirling",c:"GB"},
-  {n:"nextbike Switzerland",l:"Switzerland",c:"CH"},
-  {n:"nextbike Trutnov",l:"Trutnov",c:"CZ"},
-  {n:"nextbike Třebíč",l:"Třebíč",c:"CZ"},
-  {n:"nextbike Uherské Hradiště",l:"Uherské Hradiště",c:"CZ"},
-  {n:"nextbike Valašsko",l:"Valašsko",c:"CZ"},
-  {n:"nextbike Vrchlabí",l:"Vrchlabí",c:"CZ"},
-  {n:"nextbike Vukovar",l:"Vukovar",c:"HR"},
-  {n:"nextbike Wiesbaden",l:"Wiesbaden",c:"DE"},
-  {n:"nextbike Zadar",l:"Zadar",c:"HR"},
-  {n:"nextbike Zagreb",l:"Zagreb",c:"HR"},
-  {n:"nextbike Zlín",l:"Zlín",c:"CZ"},
-  {n:"nextbike Česká Třebová",l:"Česká Třebová",c:"CZ"},
-  {n:"nextbike Šibenik",l:"Šibenik",c:"HR"},
-  {n:"Nomago Bikes GO2GO",l:"Nova Gorica",c:"SI"},
-  {n:"Nomago Bikes Ljubljana",l:"Ljubljana",c:"SI"},
-  {n:"NS OV Fiets",l:"Netherlands",c:"NL"},
-  {n:"Ogalo Cyclette",l:"Saumur",c:"FR"},
-  {n:"OLi-Bike",l:"Oldenburg",c:"DE"},
-  {n:"Ontibici",l:"Ontinyent",c:"ES"},
-  {n:"Optymo Belfort",l:"Belfort",c:"FR"},
-  {n:"Oslo Bysykkel",l:"Oslo",c:"NO"},
-  {n:"Otto",l:"Norway",c:"NO"},
-  {n:"PBSC HQ",l:"Montreal",c:"CA"},
-  {n:"PeaceHealth Rides",l:"Eugene, OR",c:"US"},
-  {n:"Piaseczyński Rower Miejski",l:"Piaseczno",c:"PL"},
-  {n:"PickeBike Basel",l:"Basel",c:"CH"},
-  {n:"PickeBike Fribourg",l:"Fribourg",c:"CH"},
-  {n:"Pony Angers",l:"Angers",c:"FR"},
-  {n:"Pony Bordeaux",l:"Bordeaux",c:"FR"},
-  {n:"Pony Brussels",l:"Brussels",c:"BE"},
-  {n:"Pony Charleroi",l:"Charleroi",c:"BE"},
-  {n:"Pony Limoges",l:"Limoges",c:"FR"},
-  {n:"Pony Liège",l:"Liege",c:"BE"},
-  {n:"Pony Paris",l:"Paris",c:"FR"},
-  {n:"Potsdam Rad",l:"Potsdam",c:"DE"},
-  {n:"Prishtina bike",l:"Prishtina",c:"XK"},
-  {n:"PubliBike",l:"Switzerland",c:"CH"},
-  {n:"Périvélo",l:"Périgueux",c:"FR"},
-  {n:"QuickRent",l:"Switzerland",c:"CH"},
-  {n:"Redding Bikeshare",l:"Redding, CA",c:"US"},
-  {n:"Reddy Bikeshare",l:"Buffalo, NY",c:"US"},
-  {n:"RegioRadStuttgart",l:"Stuttgart",c:"DE"},
-  {n:"Relay Bike Share",l:"Atlanta, GA",c:"US"},
-  {n:"RGV B-cycle",l:"McAllen, TX",c:"US"},
-  {n:"Rhoule",l:"Piriac-sur-Mer",c:"FR"},
-  {n:"Rivi Bike",l:"Largo Dos Coqueiros",c:"BR"},
-  {n:"Roche - Bike",l:"Mannheim",c:"DE"},
-  {n:"RTC Bike Share",l:"Las Vegas, NV",c:"US"},
-  {n:"Rubis'Velo",l:"Bourg-en-Bresse",c:"FR"},
-  {n:"Ryde Oslo",l:"Oslo",c:"NO"},
-  {n:"Ryde Trondheim",l:"Trondheim",c:"NO"},
-  {n:"San Antonio B-cycle",l:"San Antonio, TX",c:"US"},
-  {n:"Santa Barbara BCycle",l:"Santa Barbara, CA",c:"US"},
-  {n:"Santa Cruz BCycle",l:"Santa Cruz, CA",c:"US"},
-  {n:"SAP Walldorf",l:"Walldorf",c:"DE"},
-  {n:"SBU Wolf Ride",l:"Stony Brook, NY",c:"US"},
-  {n:"Semo Vélo",l:"Louviers",c:"FR"},
-  {n:"Senica bajk",l:"Senica",c:"SK"},
-  {n:"Sevici",l:"Seville",c:"ES"},
-  {n:"Share Birrer",l:"Switzerland",c:"CH"},
-  {n:"sharedmobility.ch",l:"Switzerland",c:"CH"},
-  {n:"Sibiu BikeCity",l:"Sibiu",c:"RO"},
-  {n:"Sobi Hamilton",l:"Hamilton",c:"CA"},
-  {n:"Stadtmobil Karlsruhe",l:"Karlsruhe",c:"DE"},
-  {n:"Stadtmobil Stuttgart",l:"Stuttgart",c:"DE"},
-  {n:"Stadtrad Innsbruck Austria",l:"Innsbruck",c:"AT"},
-  {n:"StadtRadHamburg",l:"Hamburg",c:"DE"},
-  {n:"Stella",l:"Stuttgart",c:"DE"},
-  {n:"Styr & Ställ",l:"Göteborg",c:"SE"},
-  {n:"swabi - augsburg",l:"Augsburg",c:"DE"},
-  {n:"Swansea University Cycles",l:"Swansea",c:"GB"},
-  {n:"swu2go Carsharing",l:"Ulm",c:"DE"},
-  {n:"Tempovelo",l:"Agen",c:"FR"},
-  {n:"Ti Vélo",l:"Landerneau",c:"FR"},
-  {n:"TLP Mobilites",l:"Tarbes",c:"FR"},
-  {n:"TORRENTBICI",l:"Torrent",c:"ES"},
-  {n:"Trinity Metro Bikes",l:"Fort Worth, TX",c:"US"},
-  {n:"Trondheim Bysykkel",l:"Trondheim",c:"NO"},
-  {n:"Truckee BCycle",l:"Truckee, CA",c:"US"},
-  {n:"TubaBike",l:"Barcelos",c:"PT"},
-  {n:"TUeBICI",l:"Santander",c:"ES"},
-  {n:"Tugo",l:"Tucson, AZ",c:"US"},
-  {n:"Twisto Vélolib",l:"Caen",c:"FR"},
-  {n:"V'lille",l:"Lille",c:"FR"},
-  {n:"VAG_Rad",l:"Nuremberg",c:"DE"},
-  {n:"Valenbisi",l:"Valencia",c:"ES"},
-  {n:"Valentine Bike Share",l:"Valentine, NE",c:"US"},
-  {n:"Valladolid",l:"Valladolid",c:"ES"},
-  {n:"Vel'OH!",l:"Luxembourg",c:"LU"},
-  {n:"Velam",l:"Amiens",c:"FR"},
-  {n:"Velect'in",l:"Calais",c:"FR"},
-  {n:"Velo Antwerpen",l:"Antwerp",c:"BE"},
-  {n:"Velo Fluo Grand-Est",l:"Grand Est",c:"FR"},
-  {n:"Velo Sântana",l:"Sântana",c:"RO"},
-  {n:"Veloleo",l:"Braunschweig",c:"DE"},
-  {n:"Velospot",l:"Switzerland",c:"CH"},
-  {n:"Vernou Vélo",l:"Vernou-en-Sologne",c:"FR"},
-  {n:"Verona Bike",l:"Verona",c:"IT"},
-  {n:"Vertuose",l:"Longwy",c:"FR"},
-  {n:"VETURILO 3.0",l:"Warsaw",c:"PL"},
-  {n:"Villo",l:"Brussels",c:"BE"},
-  {n:"Vilvolt",l:"Épinal",c:"FR"},
-  {n:"Vivélo",l:"Vichy",c:"FR"},
-  {n:"VOI Antwerp",l:"Antwerp",c:"BE"},
-  {n:"Voi Bergen",l:"Bergen",c:"NO"},
-  {n:"Voi Germany",l:"Germany",c:"DE"},
-  {n:"Voi Grenoble",l:"Grenoble",c:"FR"},
-  {n:"Voi Marseille",l:"Marseille",c:"FR"},
-  {n:"Voi Oslo",l:"Oslo",c:"NO"},
-  {n:"Voi Switzerland",l:"Switzerland",c:"CH"},
-  {n:"Voi Trondheim",l:"Trondheim",c:"NO"},
-  {n:"VRNnextbike",l:"Rhine-Neckar",c:"DE"},
-  {n:"VVT REGIORAD Tirol",l:"Austria",c:"AT"},
-  {n:"Vélhop",l:"Strasbourg",c:"FR"},
-  {n:"Vélivert",l:"Saint-Étienne",c:"FR"},
-  {n:"Vélo d'Aqui",l:"Argelès-sur-Mer",c:"FR"},
-  {n:"Vélo Tanlib",l:"Niort",c:"FR"},
-  {n:"Vélo'Baie",l:"Saint-Brieuc",c:"FR"},
-  {n:"Vélo'Cité",l:"Laon",c:"FR"},
-  {n:"Vélo'v",l:"Lyon",c:"FR"},
-  {n:"VélO2",l:"Cergy-Pontoise",c:"FR"},
-  {n:"VéloCité",l:"Besançon",c:"FR"},
-  {n:"VéloCité Mulhouse",l:"Mulhouse",c:"FR"},
-  {n:"VéloModalis",l:"Royan",c:"FR"},
-  {n:"Vélonecy",l:"Annecy",c:"FR"},
-  {n:"Vélopop",l:"Avignon",c:"FR"},
-  {n:"VélOstan'lib",l:"Nancy",c:"FR"},
-  {n:"VéloZef",l:"Brest",c:"FR"},
-  {n:"VélYcéo",l:"Saint-Nazaire",c:"FR"},
-  {n:"VélÔToulouse",l:"Toulouse",c:"FR"},
-  {n:"WE-cycle",l:"Aspen, CO",c:"US"},
-  {n:"welo",l:"Welo",c:"DE"},
-  {n:"westBike",l:"Heinsberg",c:"DE"},
-  {n:"WienMobil Rad",l:"Vienna",c:"AT"},
-  {n:"WinsenRad",l:"Winsen",c:"DE"},
-  {n:"Wolsztyński Rower Miejski",l:"Wolsztyn",c:"PL"},
-  {n:"WRM nextbike",l:"Wrocław",c:"PL"},
-  {n:"wupsiRad Leverkusen",l:"Leverkusen",c:"DE"},
-  {n:"Yaldi",l:"Dubai",c:"AE"},
-  {n:"Yoio Erfurt",l:"Erfurt",c:"DE"},
-  {n:"Yoio Freiburg",l:"Freiburg",c:"DE"},
-  {n:"Yoio Göttingen",l:"Göttingen",c:"DE"},
-  {n:"Zebullo",l:"Reims",c:"FR"},
-  {n:"Zenica",l:"Zenica",c:"BA"},
-  {n:"Zeus Anzio",l:"Anzio",c:"IT"},
-  {n:"Zeus Bamberg",l:"Bamberg",c:"DE"},
-  {n:"Zeus Cheltenham",l:"Cheltenham",c:"GB"},
-  {n:"Zeus Falun",l:"Falun",c:"SE"},
-  {n:"Zeus Freiburg",l:"Freiburg",c:"DE"},
-  {n:"Zeus Gloucester",l:"Gloucester",c:"GB"},
-  {n:"Zeus Halmstad",l:"Halmstad",c:"SE"},
-  {n:"Zeus Heidelberg",l:"Heidelberg",c:"DE"},
-  {n:"Zeus Heilbronn",l:"Heilbronn",c:"DE"},
-  {n:"Zeus Karlstad",l:"Karlstad",c:"SE"},
-  {n:"Zeus Konstanz",l:"Konstanz",c:"DE"},
-  {n:"Zeus Kuala Lumpur",l:"Kuala Lumpur",c:"MY"},
-  {n:"Zeus Ludwigsburg",l:"Ludwigsburg",c:"DE"},
-  {n:"Zeus Pforzheim",l:"Pforzheim",c:"DE"},
-  {n:"Zeus Regensburg",l:"Regensburg",c:"DE"},
-  {n:"Zeus Reutlingen",l:"Reutlingen",c:"DE"},
-  {n:"Zeus Tübingen",l:"Tübingen",c:"DE"},
-  {n:"Zeus Würzburg",l:"Würzburg",c:"DE"},
-  {n:"Zielonogórski Rower Miejski",l:"Zielona Góra",c:"PL"},
-  {n:"àVélo",l:"Québec",c:"CA"},
-  {n:"Łódzki Rower Publiczny",l:"Łódź",c:"PL"}
+// ---- SYSTEMS DATA (loaded from CSV) ----
+let SYSTEMS = [];
+const CSV_PATH = 'assets/bikeshare_systems_clean.csv';
+
+const POPULAR_NAMES = [
+  "citi bike","divvy","capital bikeshare","capital bike share","bluebikes","blue bikes",
+  "bay wheels","bike share toronto","bixi","metro bike share","cogo","pogoh",
+  "santander cycles","vélib","ecobici","bicing","dublinbikes","bike chattanooga",
+  "indego","bicimad","nice ride","denver b-cycle"
 ];
 
 const COUNTRY_NAMES = {
-  AE:"UAE",AR:"Argentina",AT:"Austria",AW:"Aruba",BA:"Bosnia & Herzegovina",
+  AE:"UAE",AR:"Argentina",AT:"Austria",AU:"Australia",AW:"Aruba",BA:"Bosnia & Herzegovina",
   BE:"Belgium",BR:"Brazil",CA:"Canada",CH:"Switzerland",CL:"Chile",CO:"Colombia",
   CY:"Cyprus",CZ:"Czech Republic",DE:"Germany",DK:"Denmark",ES:"Spain",FI:"Finland",
   FR:"France",GB:"United Kingdom",GR:"Greece",HR:"Croatia",HU:"Hungary",IE:"Ireland",
@@ -1264,7 +678,39 @@ const COUNTRY_NAMES = {
   US:"United States",XK:"Kosovo"
 };
 
-// Render systems
+function parseCSV(text) {
+  const lines = text.split('\n');
+  const systems = [];
+  for (let i = 1; i < lines.length; i++) {
+    const line = lines[i].trim();
+    if (!line) continue;
+    const cols = [];
+    let cur = '', inQuotes = false;
+    for (let j = 0; j < line.length; j++) {
+      const ch = line[j];
+      if (ch === '"') { inQuotes = !inQuotes; }
+      else if (ch === ',' && !inQuotes) { cols.push(cur); cur = ''; }
+      else { cur += ch; }
+    }
+    cols.push(cur);
+    const [cc, name, location] = cols;
+    if (cc && name) systems.push({ n: name, l: location || '', c: cc });
+  }
+  return systems;
+}
+
+function sortSystems(systems) {
+  return systems.sort((a, b) => {
+    const aIdx = POPULAR_NAMES.findIndex(p => a.n.toLowerCase().includes(p));
+    const bIdx = POPULAR_NAMES.findIndex(p => b.n.toLowerCase().includes(p));
+    if (aIdx !== -1 && bIdx === -1) return -1;
+    if (aIdx === -1 && bIdx !== -1) return 1;
+    if (aIdx !== -1 && bIdx !== -1) return aIdx - bIdx;
+    return a.n.localeCompare(b.n);
+  });
+}
+
+// ---- RENDER ----
 const grid = document.getElementById('systems-grid');
 const search = document.getElementById('system-search');
 const countEl = document.getElementById('results-count');
@@ -1290,12 +736,28 @@ function renderSystems(filter = '') {
     </div>`
   ).join('');
 
-  const suffix = q ? ` matching "${filter}"` : ' shown (representative list — 635+ total)';
+  const suffix = q ? ` matching "${filter}"` : '';
   countEl.textContent = filtered.length + ' systems' + suffix;
 }
 
 search.addEventListener('input', (e) => renderSystems(e.target.value));
-renderSystems();
+
+// ---- LOAD CSV & INIT ----
+async function loadSystems() {
+  try {
+    grid.innerHTML = '<div class="no-results">Loading bikeshare systems…</div>';
+    const resp = await fetch(CSV_PATH);
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const text = await resp.text();
+    SYSTEMS = sortSystems(parseCSV(text));
+    document.getElementById('system-count').textContent = SYSTEMS.length;
+    renderSystems();
+  } catch (err) {
+    console.error('Failed to load systems CSV:', err);
+    grid.innerHTML = '<div class="no-results">Failed to load bikeshare systems. Please refresh.</div>';
+  }
+}
+loadSystems();
 
 // ---- SCROLL REVEAL ----
 const observer = new IntersectionObserver((entries) => {
