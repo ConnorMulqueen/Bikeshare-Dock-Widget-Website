@@ -126,7 +126,6 @@
   .hero-sub {
     font-size: clamp(1.05rem, 2vw, 1.3rem);
     color: var(--text-muted);
-    max-width: 520px;
     margin-top: 1.5rem;
     line-height: 1.7;
     animation: fadeUp 0.8s ease-out 0.3s both;
@@ -175,16 +174,16 @@
     position: relative;
     animation: fadeUp 1s ease-out 0.6s both;
   }
-  .mockup-frame {
-    width: 320px; height: 200px;
-    border-radius: 20px;
+.mockup-frame {
+    width: 340px; height: 620px;
+    border-radius: 40px;
     background: var(--surface);
     border: 1px solid var(--border);
     display: flex; align-items: center; justify-content: center;
     overflow: hidden;
     position: relative;
     box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 60px var(--accent-glow);
-  }
+}
   .mockup-placeholder {
     color: var(--text-muted); font-size: 0.85rem; font-weight: 500;
     display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
@@ -253,10 +252,13 @@
     display: flex; align-items: center; justify-content: center;
     color: var(--text-muted); font-size: 0.85rem; font-weight: 500;
   }
-  .screenshot-label {
+.screenshot-label {
     padding: 1rem 1.2rem;
-    font-size: 0.88rem; font-weight: 500; color: var(--text-muted);
-  }
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-align: center; /* centers text horizontally */
+}
 
   /* ---- PRICING ---- */
   .pricing { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
@@ -407,7 +409,7 @@
       padding: 0.9rem 1.4rem; font-size: 0.95rem;
     }
     .hero-mockup { margin-top: 2.5rem; }
-    .mockup-frame { width: 280px; height: 170px; border-radius: 16px; }
+.mockup-frame { width: 280px; height: 510px; border-radius: 32px; }
 
     .section-title { font-size: clamp(1.7rem, 7vw, 2.4rem); max-width: 100%; }
     .section-desc { font-size: 0.95rem; max-width: 100%; }
@@ -472,17 +474,23 @@
 <section class="hero">
   <div class="badge">
     <span class="badge-dot"></span>
-    Live bikeshare data on your home screen
+    Live bikeshare dock data on your home screen
   </div>
   <h1>Never miss a <em>bike</em> again.</h1>
   <p class="hero-sub">
     Check bikeshare dock availability at a glance on your home screen.
   </p>
   <div class="hero-ctas">
-    <a href="#REPLACE_PLAYSTORE_LINK" class="btn-primary">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-      Download for Android
-    </a>
+    
+<a id="play-store-cta" href="https://play.google.com/apps/testing/com.bikeshare.widget" class="btn-primary">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+  Download for Android
+</a>
+<script>
+  if (/Android/i.test(navigator.userAgent)) {
+    document.getElementById('play-store-cta').href = 'https://play.google.com/store/apps/details?id=com.bikeshare.widget';
+  }
+</script>
     <a href="#REPLACE_IOS_NOTIFY_LINK" class="btn-secondary">
       <span class="ios-badge">COMING SOON</span>
       iOS — Notify Me
@@ -490,13 +498,9 @@
   </div>
 
   <div class="hero-mockup">
-    <div class="mockup-frame">
-      <div class="mockup-placeholder">
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="6" width="20" height="12" rx="3"/><circle cx="8" cy="12" r="2"/><circle cx="16" cy="12" r="2"/><path d="M8 14v2M16 14v2"/></svg>
-        <!-- REPLACE: Drop your widget screenshot here -->
-        <span>Widget Screenshot</span>
-      </div>
-    </div>
+<div class="mockup-frame">
+    <img src="assets/device_home_screen_no_bg.png" alt="Dock Widget on home screen" style="width: 100%; height: 100%; object-fit: contain;">
+</div>
   </div>
 </section>
 
@@ -506,7 +510,7 @@
     <div class="section-label">How it works</div>
     <h2 class="section-title">Bikeshare availability, one glance away</h2>
     <p class="section-desc">
-      Bikeshare Dock Widget puts real-time bike and dock counts directly on your home screen widget. Built for the daily commuter who needs to know before they walk.
+      Bikeshare Dock Widget puts real-time bike and dock counts directly on your home screen. Built for the daily commuter who needs to know before they walk.
     </p>
 
     <div class="steps">
@@ -536,24 +540,58 @@
   <div class="screenshots-grid">
     <div class="screenshot-card reveal">
       <div class="screenshot-img">
-         <img src="assets/device_city_search.jpg" alt="Widget on Home Screen" style="width: 100%; height: 100%; object-fit: cover;">
+         <img src="assets/device_city_search_no_bg.png" alt="Widget on Home Screen" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
       <div class="screenshot-label">Search for your bikeshare program</div>
     </div>
     <div class="screenshot-card reveal">
       <div class="screenshot-img">
-        <img src="assets/device_map.jpg" alt="Interactive Station Map" style="width: 100%; height: 100%; object-fit: cover;">
+        <img src="assets/device_map_no_bg.png" alt="Interactive Station Map" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
       <div class="screenshot-label">Find and pin your favorite stations</div>
     </div>
     <div class="screenshot-card reveal">
       <div class="screenshot-img">
         <!-- REPLACE: Multiple widgets screenshot -->
-          <img src="assets/device_home_screen.jpg" alt="Interactive Station Map" style="width: 100%; height: 100%; object-fit: cover;">
+          <img src="assets/device_home_screen_no_bg.png" alt="Interactive Station Map" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
       <div class="screenshot-label">Receive realtime dock updates</div>
     </div>
   </div>
+</section>
+
+<!-- SYSTEMS SEARCH -->
+<section class="systems-section container" id="systems">
+  <div class="systems-header">
+    <div>
+      <div class="section-label">Global coverage</div>
+      <h2 class="section-title">Works with hundreds of bikeshare systems worldwide</h2>
+      <p class="section-desc">
+        Powered by the open GBFS data standard. If your city has a bikeshare, chances are we've got it.
+      </p>
+      <div class="systems-stats">
+        <div class="stat-item">
+          <div class="stat-num" id="system-count">—</div>
+          <div class="stat-label">Systems</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">49</div>
+          <div class="stat-label">Countries</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">6</div>
+          <div class="stat-label">Continents</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="search-container">
+    <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input type="text" class="search-box" id="system-search" placeholder="Search by name, city, or country..." autocomplete="off">
+    <div class="results-count" id="results-count"></div>
+  </div>
+  <div class="systems-grid" id="systems-grid"></div>
 </section>
 
 <!-- PRICING -->
@@ -593,40 +631,6 @@
   </div>
 </section>
 
-<!-- SYSTEMS SEARCH -->
-<section class="systems-section container" id="systems">
-  <div class="systems-header">
-    <div>
-      <div class="section-label">Global coverage</div>
-      <h2 class="section-title">Works with hundreds of bikeshare systems worldwide</h2>
-      <p class="section-desc">
-        Powered by the open GBFS data standard. If your city has a bikeshare, chances are we've got it.
-      </p>
-      <div class="systems-stats">
-        <div class="stat-item">
-          <div class="stat-num" id="system-count">—</div>
-          <div class="stat-label">Systems</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">49</div>
-          <div class="stat-label">Countries</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">6</div>
-          <div class="stat-label">Continents</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="search-container">
-    <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-    <input type="text" class="search-box" id="system-search" placeholder="Search by name, city, or country..." autocomplete="off">
-    <div class="results-count" id="results-count"></div>
-  </div>
-  <div class="systems-grid" id="systems-grid"></div>
-</section>
-
 <!-- CTA FOOTER -->
 <section class="container" style="text-align: center; padding-bottom: 6rem;">
   <h2 class="section-title" style="margin: 0 auto;">Ready to ride?</h2>
@@ -650,8 +654,8 @@
   <span class="icon"><img src="assets/app_icon.svg" alt="" style="width: 18px; height: 18px;"></span>
     Bikeshare Dock Widget
   </div>
-  <p>Built with ☕ in NYC. Powered by <a href="https://gbfs.org" target="_blank">GBFS open data</a>.</p>
-  <p style="margin-top: 0.5rem;">© 2025 Bikeshare Dock Widget. All rights reserved.</p>
+  <p>Built in NYC. Powered by <a href="https://gbfs.org" target="_blank">GBFS open data</a>.</p>
+  <p style="margin-top: 0.5rem;">© 2026 Bikeshare Dock Widget. All rights reserved.</p>
 </footer>
 
 <script>
