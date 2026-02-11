@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- posthog metrics -->
+ <script>
+  !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group identify setPersonProperties setGroupProperties".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+  posthog.init('phc_w15DvUx7RovTcGkFtUdXziUXI3u9OmVayO4RorV84ei', {api_host: 'https://us.i.posthog.com'})
+</script>
 <!-- Open Graph tags for social sharing -->
 <meta property="og:title" content="Dockwatch - Real-time bikeshare station availability on your homescreen">
 <meta property="og:description" content="Display live bike and dock availability from 700+ bikeshare systems worldwide">
@@ -488,18 +493,13 @@
   </p>
   <div class="hero-ctas">
     
-<a id="play-store-cta" href="https://play.google.com/apps/testing/com.bikeshare.widget" class="btn-primary" target="_blank" rel="noopener noreferrer">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-  Android - Join Beta!
-</a>
-<script>
-  if (/Android/i.test(navigator.userAgent)) {
-    document.getElementById('play-store-cta').href = 'https://play.google.com/store/apps/details?id=com.bikeshare.widget';
-  }
-</script>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLScH__noGZYm_70e6BrwPv3WylLwWAHwCVe7Gcio_e38jnAgjg/viewform?usp=publish-editor" class="btn-secondary" target="_blank" rel="noopener noreferrer">
+    <a id="play-store-cta" href="https://forms.gle/chYZEbAinrXrVADm8" class="btn-primary" target="_blank" rel="noopener noreferrer" onclick="posthog.capture('cta_clicked', {button: 'android_beta', location: 'hero'})">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+      Android — Join the beta!
+    </a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScH__noGZYm_70e6BrwPv3WylLwWAHwCVe7Gcio_e38jnAgjg/viewform?usp=publish-editor" class="btn-secondary" target="_blank" rel="noopener noreferrer" onclick="posthog.capture('cta_clicked', {button: 'ios_notify_me', location: 'hero'})">
       <span class="ios-badge">COMING SOON</span>
-      iOS — Notify Me
+      iOS — Notify me
     </a>
   </div>
 
@@ -644,11 +644,11 @@
     Stop opening apps. Start glancing at your home screen.
   </p>
   <div class="hero-ctas">
-    <a href="#REPLACE_PLAYSTORE_LINK" class="btn-primary">
+    <a href="https://forms.gle/chYZEbAinrXrVADm8" class="btn-primary" target="_blank" rel="noopener noreferrer" onclick="posthog.capture('cta_clicked', {button: 'android_beta', location: 'hero'})">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-      Download for Android
+       Android - Join the beta!
     </a>
-    <a href="#REPLACE_IOS_NOTIFY_LINK" class="btn-secondary">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScH__noGZYm_70e6BrwPv3WylLwWAHwCVe7Gcio_e38jnAgjg/viewform?usp=publish-editor" class="btn-secondary" target="_blank" rel="noopener noreferrer" onclick="posthog.capture('cta_clicked', {button: 'ios_notify_me', location: 'hero'})">
       <span class="ios-badge">COMING SOON</span>
       iOS — Notify Me
     </a>
@@ -750,7 +750,14 @@ function renderSystems(filter = '') {
   countEl.textContent = filtered.length + ' systems' + suffix;
 }
 
-search.addEventListener('input', (e) => renderSystems(e.target.value));
+let searchTracked = false;
+search.addEventListener('input', (e) => {
+  renderSystems(e.target.value);
+  if (!searchTracked && e.target.value.trim().length >= 2) {
+    posthog.capture('system_search_used');
+    searchTracked = true;
+  }
+});
 
 // ---- LOAD CSV & INIT ----
 async function loadSystems() {
